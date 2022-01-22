@@ -12,6 +12,7 @@
 		<link href="css/shields.css" rel="stylesheet" type="text/css" />
 		<link href="css/form.css" rel="stylesheet" type="text/css" />
 
+		<script src="js/dom-to-image.js" type="text/javascript"></script>
 		<script src="js/lib.js" type="text/javascript" ></script>
 		<script src="js/Shield.js" type="text/javascript" ></script>
 		<script src="js/Sign.js" type="text/javascript" ></script>
@@ -102,7 +103,12 @@
 				<label for="actionMessage" id="actionMessageLabel">Action Message: </label>
 				<input type="text" id="actionMessage" name="actionMessage" placeholder="Action Message" onBlur="app.readForm();" />
 				<br />
+				<input type="button" id="saveAsSVG" name="saveAsSVG" onclick="app.saveToSVG();" value="Save SVG"></input>
 			</form>
+
+			<div id="resultSVG">
+				
+			</div>
 
 		</main>
 

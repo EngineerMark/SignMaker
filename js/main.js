@@ -2,6 +2,8 @@ const app = (function() {
 	let post = {};
 	let currentlySelectedPanelIndex = -1;
 
+	
+
 	/**
 	 * Initialize the application.
 	 */
@@ -752,6 +754,21 @@ const app = (function() {
 		}
 	};
 
+	const saveToSVG = function() {
+		let svg = domtoimage.toSvg(document.getElementById("panelContainer"));
+		svg.then(function(dataUrl) {
+			let res = document.getElementById("resultSVG");
+			res.childNodes.forEach(function(value, key, parent) {
+				res.removeChild(value);
+			});
+			let img = new Image();
+			img.src = dataUrl;
+			document.getElementById("resultSVG").appendChild(img);
+		}).catch(function(error) {
+			console.error("Error saving!", error);
+		});
+	}
+
 	return {
 		init : init,
 		newPanel : newPanel,
@@ -761,6 +778,7 @@ const app = (function() {
 		shiftRight : shiftRight,
 		changeEditingPanel : changeEditingPanel,
 		newShield : newShield,
-		readForm : readForm
+		readForm : readForm,
+		saveToSVG : saveToSVG
 	};
 })();
