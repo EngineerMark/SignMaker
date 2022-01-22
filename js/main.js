@@ -769,6 +769,19 @@ const app = (function() {
 		});
 	}
 
+	const saveToPng = function() {
+		let png = htmlToImage.toPng(document.getElementById("panelContainer"));
+		png.then(function(dataUrl) {
+			let res = document.getElementById("resultSVG");
+			res.childNodes.forEach(function(value, key, parent) {
+				res.removeChild(value);
+			});
+			let img = new Image();
+			img.src = dataUrl;
+			res.appendChild(img);
+		})
+	}
+
 	return {
 		init : init,
 		newPanel : newPanel,
@@ -779,6 +792,7 @@ const app = (function() {
 		changeEditingPanel : changeEditingPanel,
 		newShield : newShield,
 		readForm : readForm,
-		saveToSVG : saveToSVG
+		saveToSVG : saveToSVG,
+		saveToPng : saveToPng
 	};
 })();
