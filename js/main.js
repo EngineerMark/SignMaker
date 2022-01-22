@@ -510,8 +510,8 @@ const app = (function() {
 				shieldElmt.className = "shield";
 				bannerShieldContainerElmt.appendChild(shieldElmt);
 
-				const shieldImgElmt = document.createElement("object");
-				shieldImgElmt.type = "image/svg+xml";
+				const shieldImgElmt = document.createElement("img");
+				//shieldImgElmt.type = "image/svg+xml";
 				shieldImgElmt.className = "shieldImg";
 				shieldElmt.appendChild(shieldImgElmt);
 
@@ -566,7 +566,7 @@ const app = (function() {
 						}
 					}
 				}
-				shieldImgElmt.data = imgDir + imgFileConstr + ".svg";
+				shieldImgElmt.src = imgDir + imgFileConstr + ".svg";
 				//shield
 				
 
@@ -755,7 +755,7 @@ const app = (function() {
 	};
 
 	const saveToSVG = function() {
-		let svg = domtoimage.toSvg(document.getElementById("panelContainer"));
+		let svg = htmlToImage.toSvg(document.getElementById("panelContainer"));
 		svg.then(function(dataUrl) {
 			let res = document.getElementById("resultSVG");
 			res.childNodes.forEach(function(value, key, parent) {
