@@ -770,16 +770,41 @@ const app = (function() {
 	}
 
 	const saveToPng = function() {
-		let png = htmlToImage.toPng(document.getElementById("panelContainer"));
-		png.then(function(dataUrl) {
-			let res = document.getElementById("resultSVG");
-			res.childNodes.forEach(function(value, key, parent) {
-				res.removeChild(value);
+		let svg = htmlToImage.toSvg(document.getElementById("panelContainer"));
+		svg.then(function(dataUrl) {
+			
+			console.log(dataUrl);
+
+			let tmpCanvas = document.createElement("canvas");
+			let ctx = tmpCanvas.getContext("2d");
+		
+			let tmpImg = new Image();
+			tmpImg.addEventListener("load", onTempImageLoad);
+			tmpImg.src = dataUrl;
+		
+			console.log(tmpImg.width, tmpImg.height);
+
+			tmpCanvas.width = tmpCanvas.height = 512;
+
+			let targetImg = new Image();
+
+			let rslt = document.getElementById("resultSVG");
+			rslt.childNodes.forEach(function(value, index, parent) {
+				rslt.removeChild(value);
 			});
-			let img = new Image();
-			img.src = dataUrl;
-			res.appendChild(img);
-		})
+			rslt.appendChild(targetImg);
+
+			function onTempImageLoad(e) {
+				tmpCanvas.width = e.target.width;
+				tmpCanvas.height = e.target.height;
+
+				ctx.drawImage(e.target, 0, 0);
+				targetImg.src = tmpCanvas.toDataURL();
+			};
+
+		}).catch(function(error) {
+			console.error("Error Saving!", error);
+		});
 	}
 
 	return {
