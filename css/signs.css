@@ -13,6 +13,9 @@
 #postContainer.polePositionCenter .post {
 	visibility: hidden;
 }
+#postContainer.polePositionNone .post {
+	visibility: hidden;
+}
 
 #postContainer.polePositionLeft #panelContainer,
 #postContainer.polePositionRight #panelContainer,
