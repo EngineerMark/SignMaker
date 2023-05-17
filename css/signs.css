@@ -13,7 +13,12 @@
 #postContainer.polePositionCenter .post {
 	visibility: hidden;
 }
+#postContainer.polePositionNone {
+	height: auto;
+	visibility: hidden;
+}
 #postContainer.polePositionNone .post {
+	height: 0;
 	visibility: hidden;
 }
 
