@@ -134,10 +134,13 @@
 }
 .panel.white .exitTab,
 .panel.yellow .exitTab,
+.panel.orange .exitTab,
 .panel.white .sign,
 .panel.yellow .sign,
+.panel.orange .sign,
 .panel.white .guideArrows,
-.pabel.yellow .guideArrows {
+.panel.yellow .guideArrows,
+.panel.orange .guideArrows {
 	color: var(--black);
 	border-color: var(--black);
 }
@@ -183,6 +186,14 @@
 .panel.black .exitTabContainer,
 .panel.black .guideArrows {
 	background-color: var(--black);
+}
+
+.panel.orange .exitTab,
+.panel.orange .sign,
+.panel.orange .signContainer,
+.panel.orange .exitTabContainer,
+.panel.orange .guideArrows {
+	background-color: var(--orange)
 }
 
 .exitTab {
