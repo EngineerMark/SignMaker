@@ -35,7 +35,8 @@ const lib = (function() {
 		Brown : "rgb(98, 51, 30)",
 		Yellow : "rgb(255, 178, 0)",
 		White : "rgb(255, 255, 255)",
-		Black : "rgb(0, 0, 0)"
+		Black : "rgb(0, 0, 0)",
+		Orange: "rgb(255, 102, 0)"
 	};
 
 	const specialCharacters = {
